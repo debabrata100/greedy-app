@@ -1,0 +1,19 @@
+.clickable{
+    cursor:pointer;
+}
+
+.hasError{
+    border-color: orangered !important;
+}
+.mt-10{
+    margin-top:10px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.status-btn{
+    
+}
+footer{
+    
+}

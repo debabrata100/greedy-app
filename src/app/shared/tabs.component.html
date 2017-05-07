@@ -1,0 +1,26 @@
+
+<div class="container music-container">
+  <div  class="row">	
+    <div class="com-md-12">
+          <ul class="nav nav-tabs">
+              <li 
+              routerLink="/tracks" 
+              [class.active]="activeTab=='tracks'" >
+                <a  data-toggle="tab">Tracks</a>
+              </li>
+              <li 
+              routerLink="/genres" 
+              [class.active]="activeTab=='genres'"  >
+                <a  data-toggle="tab">Genres</a>
+              </li>
+          </ul>
+
+          <div class="tab-content clearfix">
+              <div class="tab-pane active" >
+                <ng-content></ng-content>
+              </div>
+          </div>
+    </div>
+  </div>
+</div>
+

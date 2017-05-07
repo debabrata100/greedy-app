@@ -1,0 +1,44 @@
+
+<app-tabs [activeTab]="tab"  >
+      <div class="row">
+        <div class="col-md-12 mt-10">
+            <div class="form-group">
+              <label for="">{{title}}</label>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 ">
+            <form [formGroup]="form" (ngSubmit)="saveTrack()">
+                <div class="form-group">
+                    <label class="control-label" for="title">Title</label>
+                    <input class="form-control" 
+                    [(ngModel)] = "track.title"
+                    formControlName = "title"
+                    id="title" type="text" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="rating">Rating</label>
+                    <input class="form-control" 
+                    [(ngModel)] = "track.rating"
+                    formControlName = "rating"
+                    type="number" min="1" max="5" step="1">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="genres">Genre</label>
+                    <select class="form-control" multiple="" 
+                    [(ngModel)] = "track.genres"
+                    formControlName = "genres">
+                        <option *ngFor="let genre of genres" [ngValue]="genre.id">{{genre.name}}</option>
+                    </select>
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2 text-center">
+                        <button type="button" routerLink="/tracks" class="btn btn-danger">Cancel</button>
+                        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+  </app-tabs>  

@@ -1,0 +1,43 @@
+
+<app-tabs [activeTab]="tab"  >
+      <div class="row">
+        <div class="col-md-12 mt-10">
+            <h2>Music Genres</h2>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12">
+              <table class="table table-striped table-hover ">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="genresLoading">
+                  <td class="text-center" colspan="2"><spinner [visible]="genresLoading"></spinner></td>
+                </tr>
+                <tr *ngFor="let genre of genres">
+                  <td>
+                      {{genre.name}}
+                  </td>
+                  <td>
+                    <span class="cursor-pointer" [routerLink]="['/genres/edit',genre.id]">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </span>
+                  </td>
+                </tr>
+                <tr *ngIf="!genresLoading && (genres.length < 1)" >
+                  <td class="text-center" colspan="2">No Genres found</td>
+                </tr>
+              </tbody>
+            </table> 
+        </div>
+        <div class="col-md-12 text-center">
+          <pagination [next]="page" (change)="changePage($event)"></pagination>
+        </div>
+        <div class="col-md-12 text-center">
+            <a routerLink="/genres/new" class="btn btn-primary ">Add New Genre</a>
+        </div>
+      </div>
+  </app-tabs>  

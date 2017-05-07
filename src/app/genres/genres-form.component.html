@@ -1,0 +1,28 @@
+
+<app-tabs [activeTab]="tab"  >
+      <div class="row">
+        <div class="col-md-12 mt-10">
+            <div class="form-group">
+              <label for="">{{title}}</label>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 ">
+            <form [formGroup]="form" (ngSubmit)="saveGenre()">
+                <div class="form-group">
+                    <label class="control-label" for="name">Name</label>
+                    <input class="form-control" 
+                    [(ngModel)] = "genre.name"
+                    formControlName = "name"
+                    type="text" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2 text-center">
+                        <button type="button" routerLink="/genres" class="btn btn-danger">Cancel</button>
+                        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+  </app-tabs>  
